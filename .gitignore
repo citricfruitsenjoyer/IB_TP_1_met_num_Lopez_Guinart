@@ -1,0 +1,7 @@
+*/legacy
+*.DS_Store
+main*
+!main.pdf
+!main.tex
+MetNum_2026_Prac-3_Labo-SistLin.pdf
+

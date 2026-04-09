@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: 'Análisis de datos, Laboratorio Sistemas lineales de ecuaciones - López Samuel, Guinart Adriano'
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: Samuel
+    family-names: López
+    email: samuel.lopez@ib.edu.ar
+    affiliation: Instituto Balseiro
+  - given-names: Adriano
+    family-names: Guinart
+    email: adriano.guinart@ib.edu.ar
+    affiliation: Instituto Balseiro
+repository-code: 'https://github.com/'
