@@ -4,4 +4,7 @@ main*
 !main.pdf
 !main.tex
 MetNum_2026_Prac-3_Labo-SistLin.pdf
-
+legacy/
+/legacy/
+./legacy/
+test.py
