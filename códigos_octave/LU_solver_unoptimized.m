@@ -36,5 +36,5 @@ function x_sol = LU_solver_unoptimized(A, b)
     endfor
 
     % toc
-    x_sol = x;
+    x_sol = x';
 endfunction;

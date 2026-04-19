@@ -10,10 +10,10 @@ for k=1:11;
     N = 2^k; 
     A=rand(N,N);
     x = rand(N,1);
-    b = A*x;
     factor=10^-12;
     mask = rand(N,N) < 0.3;
     A(mask) = A(mask) * factor; % Mucho mas eficiente que loop abajo
+    b = A*x;
     tic;
     x_sol = pcg(A,b,1e-9,1000,eye(N),eye(N));
 

@@ -5,7 +5,7 @@ fprintf(fid,'N,t,norm_x,k,err\n');
 % A=rand(10,10);
 fclose(fid);
 
-for n=1:20;
+for n=1:16;
     fid = fopen("times_GS_cubo.csv", "a");  % open file for writing
     n;
     N=n^3;

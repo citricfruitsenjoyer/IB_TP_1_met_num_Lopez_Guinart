@@ -9,10 +9,16 @@ function [x_sol, k, corr] = Gauss_Seidel_solver(A, b, kmax,tol, x_0)
         for i = 1:N
             xi = b(i);
 
-            for j = max(i-n^2,1):min(i+n^2,N)
+            v = [i-n^2, i-n,i-1, i+1, i+n, i+n^2];
 
-                if (j != i)
-                    xi = xi - A(i, j) * x(j);
+            for j = v
+
+                if(j>0 && j<N+1)
+                
+                    if (j != i)
+                        xi = xi - A(i, j) * x(j);
+                    endif
+
                 endif
 
             endfor

@@ -1,27 +1,27 @@
-fid = fopen("times_rnd_no_pivot.csv", "a");  % open file for writing
+fid = fopen("times_rnd_pivot_factor.csv", "a");  % open file for writing
 fid
 rng(123);   % 123 es la semilla que quieras
-fprintf(fid,'N,t,err,norm_x\n');
+fprintf(fid,'N,k,t,err,norm_x\n');
 % A=rand(10,10);
 fclose(fid);
 
-for k=1:10;
-    fid = fopen("times_rnd_no_pivot.csv", "a");  % open file for writing
-    N = 2^k; 
+for k=0:12;
+    fid = fopen("times_rnd_pivot_factor.csv", "a");  % open file for writing
+    N = 200;
     A=rand(N,N);
     x = rand(N,1);
-    factor=10^-12;
+    factor=10^(-k);
     mask = rand(N,N) < 0.3;
     A(mask) = A(mask) * factor; % Mucho mas eficiente que loop abajo
     b = A*x;
     tic;
-    x_sol = LU_solver_unoptimized(A,b);
+    x_sol = LU_solver(A,b);
 
     t = toc;
     err = norm(x-x_sol);
     x_norm = norm(x);
     fprintf("N = %d, time = %f seconds,err = %f,x_norm = %f \n", N, t, err,x_norm);        % print to console
-    fprintf(fid, "%d,%.16f ,%.16f,%.16f\n", N, t, err,x_norm);
+    fprintf(fid, "%d,%d,%.16f ,%.16f,%.16f\n", N, k , t, err,x_norm);
     fclose(fid);
     % fprintf(fid, "N = %d, time = %.16f seconds, Err = \n", N, t,err);  % write to file
 end
