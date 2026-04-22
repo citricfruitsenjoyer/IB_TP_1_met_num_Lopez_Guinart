@@ -1,7 +1,7 @@
 fid = fopen("max_Q_cubo_n.csv", "a");  % open file for writing
 fid
 rng(123);   % 123 es la semilla que quieras
-fprintf(fid,'n,tmax\n');
+fprintf(fid,'n,tmax,idx\n');
 % A=rand(10,10);
 fclose(fid);
 for i = 1:50
@@ -38,8 +38,9 @@ for i = 1:50
 
     kmax=1000;
     Tsol = pcg(A, b', 1e-8, kmax);
-    
-    fprintf(fid, "%d,%.8f\n", n,max(Tsol)); 
+    [maxi idx] = max(Tsol);
+
+    fprintf(fid, "%d,%.8f,%d\n", n,maxi,(idx-1)); 
     fclose(fid);
     % fprintf(fid, "N = %d, time = %.16f seconds, Err = \n", N, t,err);  % write to file
 endfor
